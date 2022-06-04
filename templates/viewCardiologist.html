@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Early Risk Prediction of CVD - Cardiologist Information</title>
+
+    <!-- Icons font CSS-->
+    <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="static/css/main.css" rel="stylesheet" media="all">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/welcome/css/bootstrap.min.css">
+
+
+    <style>
+
+</style>
+</head>
+<body>
+<!-- Start header -->
+	<header class="top-header">
+		<nav class="navbar header-nav navbar-expand-lg">
+            <div class="container">
+				<a class="navbar-brand" href="index.html"><img src="static/assests/logo.jpg" alt="image" width="50" height="50"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd" aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar-wd">
+                    <ul class="navbar-nav">
+                        <li><a class="nav-link active" href="{{url_for('home')}}">Home</a></li>
+                        <li><a class="nav-link" href="{{url_for('home')}}">Check Risk</a></li>
+						<li><a class="nav-link" href="{{url_for('guidelines')}}">Health Guidelines</a></li>
+						<li><a class="nav-link" href="{{url_for('cardiologist_info')}}">Doctor</a></li>
+                         <li><a class="nav-link" href="#about">About Us</a></li>
+						<li><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+	</header>
+	<!-- End header -->
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Cardiologist Information </h2>
+                </div>
+                  {% for table in tables %}
+                  {{ table|safe }}
+                  {% endfor %}
+                </div>
+        </div>
+
+        <br> <br> <br>
+        <!--map functionality -->
+        <div>
+        <form action="{{url_for('cardio_map')}}" method="post">
+            <button name="mapBtn" style="display:block; " class="btn btn--radius-2 btn--blue--pastel" type="submit">View Hospitals and Cardiologists</button>
+        </form>
+        </div>
+
+        <br> <br>
+
+        <div>
+           <a href=https://forms.office.com/r/RqPxSXUnin/><input type=button style="display:block; " class="btn btn--radius-2 btn--blue--pastel" value='Contact Doctor'></a>
+        </div>
+
+    </div>
+    <!-- Jquery JS-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <script src="static/vendor/datepicker/moment.min.js"></script>
+    <script src="static/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="static/js/global.js"></script>
+
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

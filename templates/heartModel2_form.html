@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Early Risk Prediction of CVD</title>
+
+    <!-- Icons font CSS-->
+    <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="static/css/main.css" rel="stylesheet" media="all">
+
+    <style>
+
+</style>
+
+
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Check Your Risk Here ! </h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{url_for('predict2')}}">
+                        <div class="form-row m-b-55">
+                            <div class="form-row">
+                                <div class="name">Gender</div>
+                                <div class="value">
+                                    <label class="radio-container m-r-55">Male
+                                        <input type="radio" name="gender" value="1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container">Female
+                                        <input type="radio" name="gender" value="0">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="name">Age</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input class="input--style-5" type="text" name="age">
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="form-row">
+                                <div class="name">Current Smoking Status</div>
+                                <div class="value">
+                                    <label class="radio-container m-r-55">Smoker
+                                        <input type="radio" name="smoke" value="1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <label class="radio-container">Non-Smoker
+                                        <input type="radio" name="smoke" value="0">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                             </div>
+                             <div class="form-row">
+                                <div class="name">How many cigarettes you have per day ?</div>
+                                <div class="value">
+                                    <div class="input-group">
+                                        <input class="input--style-5" type="text" name="cig">
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="form-row">
+                                <div class="name">Do you take medication for blood pressure ? </div>
+                                <div class="input-group">
+                                 <div class="rs-select2 js-select-simple select--no-search">
+                                     <select name="blood">
+                                         <option disabled="disabled" selected="selected">Choose option</option>
+                                         <option value = "1">Yes</option>
+                                         <option value = "0">No</option>
+                                     </select>
+                                     <div class="select-dropdown"></div>
+                                 </div>
+                             </div>
+                             </div>
+                             <div class="form-row">
+                             <div class="name">Have you experienced a stroke ?</div>
+                             <div class="input-group">
+                                 <div class="rs-select2 js-select-simple select--no-search">
+                                     <select name="stroke">
+                                         <option disabled="disabled" selected="selected">Choose option</option>
+                                         <option value = "1">Yes</option>
+                                         <option value = "0">No</option>
+                                     </select>
+                                     <div class="select-dropdown"></div>
+                                 </div>
+                             </div>
+                             </div>
+                             <div class="form-row">
+                             <div class="name">Have you been diagnosed with hypertension ?</div>
+                             <div class="input-group">
+                                 <div class="rs-select2 js-select-simple select--no-search">
+                                     <select name="hyper">
+                                         <option disabled="disabled" selected="selected">Choose option</option>
+                                         <option value = "1">Yes</option>
+                                         <option value = "0">No</option>
+                                     </select>
+                                     <div class="select-dropdown"></div>
+                                 </div>
+                             </div>
+                             </div>
+                             <div class="form-row">
+                                <div class="name">Diabetes</div>
+                                <div class="input-group">
+                                 <div class="rs-select2 js-select-simple select--no-search">
+                                     <select name="dia">
+                                         <option disabled="disabled" selected="selected">Choose option</option>
+                                         <option value = "1">Yes</option>
+                                         <option value = "0">No</option>
+                                     </select>
+                                     <div class="select-dropdown"></div>
+                                 </div>
+                             </div>
+
+                        </div>
+                             <div class="form-row">
+                                <div class="name">Cholesterol (mg/ dL) </div>
+                                <div class="value">
+                                <div>
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="cholesterol">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-row">
+                            <div class="name">Blood Pressure</div>
+                            <div class="value">
+                                <div >
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="blood_pressure"> mm/Hg
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                            <div class="form-row">
+                                <div class="name">BMI</div>
+                                <div class="value">
+                                <div>
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="BMI">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                            <div class="form-row">
+                                <div class="name">Heart Rate</div>
+                                <div class="value">
+                                <div>
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="heart">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                            <div class="form-row">
+                                <div class="name">Glucose</div>
+                                <div class="value">
+                                <div>
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="glucose">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                            <br>
+                        <div style="margin: auto;">
+
+                            <input class="btn btn--radius-2 btn--blue" type="submit" value="Check Risk">
+                        </div>
+
+                        </div>
+
+                    </form>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <script src="static/vendor/datepicker/moment.min.js"></script>
+    <script src="static/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="static/js/global.js"></script>
+
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

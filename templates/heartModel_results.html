@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Early Risk Prediction of CVD</title>
+
+    <!-- Icons font CSS-->
+    <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="static/css/main.css" rel="stylesheet" media="all">
+
+    <style>
+
+</style>
+
+
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <img src="static/assests/heart.gif"  align="center" width="300" height="300"/>
+            &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;
+            <label>You have</label>
+            <label id ="resulting">
+			<strong style="color:red">{{resulting}}</strong>
+			</label>
+            <label>of getting a heart disease</label>
+
+            <br> <br><br><br>
+            <div class="resultsDiv">
+                <h2>STACK ML MODEL OUTCOME</h2>
+                <p>Risk Probability : </p><label id ="result_ML"><strong style="color:red">{{result_ML}}</strong></label>
+                <p>Risk Status : </p><label id ="risk_result_ML"><strong style="color:red">{{risk_result_ML}}</strong></label>
+            </div>
+
+            <br> <br>
+            <div class="resultsDiv">
+                <h2>STACK DL MODEL OUTCOME</h2>
+                <p>Risk Probability : </p><label id ="result_DL"><strong style="color:red">{{result_DL}}</strong></label>
+                <p>Risk Status : </p><label id ="risk_result_DL"><strong style="color:red">{{risk_result_DL}}</strong></label>
+            </div>
+
+            <br> <br>
+            <div class="resultsDiv">
+                <h2>AVERAGE MODEL OUTCOME</h2>
+                <p>Risk Probability : </p><label id ="result_AVG"><strong style="color:red">{{result_AVG}}</strong></label>
+                <p>Risk Status : </p><label id ="risk_result_AVG"><strong style="color:red">{{risk_result_AVG}}</strong></label>
+            </div>
+
+            <br> <br>
+            <div class="resultsDiv">
+                <h3>All results above are produced based on the input data provided by you ! Please contact cardiologist for further assistance. </h3>
+            </div>
+
+
+
+            <br> <br> <br> <br> <br> <br>
+          <!--  <a href=https://forms.office.com/r/RqPxSXUnin/><input type=button style="display:block; " class="btn btn--radius-2 btn--blue--pastel" value='Contact Doctor'></a> -->
+            <form method="POST" action="{{url_for('cardiologist_info')}}">
+            <input type=submit style="display:block; " class="btn btn--radius-2 btn--blue--pastel" value='View Cardiologist Information'>
+            </form>
+
+            <br> <br> <br> <br> <br> <br>
+            <form method="POST" action="{{url_for('guidelines')}}">
+            <input type=submit style="display:block; " class="btn btn--radius-2 btn--blue--pastel" value='Health Tips'>
+            </form>
+          </div>
+            </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <script src="static/vendor/datepicker/moment.min.js"></script>
+    <script src="static/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="static/js/global.js"></script>
+
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Early Risk Prediction of CVD TEST FORM</title>
+
+    <!-- Icons font CSS-->
+    <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="static/css/main.css" rel="stylesheet" media="all">
+
+
+    <style>
+    .required-field::after {
+    content: "*";
+    color: red;
+    }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Check Your Risk Here TEST ! </h2>
+                </div>
+                <div class="card-body" style="background : #fff;">
+                    <form method="POST" action="{{url_for('predict1')}}">
+                        <div class="form-row m-b-55">
+                        <div class="form-row">
+                            <div class="name required-field">Age </div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="age" pattern="[0-9]+" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name required-field">Gender </div>
+                            <div class="value">
+                                <label class="radio-container m-r-55">Male
+                                    <input type="radio" name="gender" value="1" required>
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container">Female
+                                    <input type="radio" name="gender" value="0">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name required-field">Chest Pain Type</div>
+                            <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="chest_pain" id="cp" required>
+                                            <option value="">Choose option</option>
+                                            <option value = "0">Typical Angina</option>
+                                            <option value = "1">Atypical Angina</option>
+                                            <option value = "2">Non-anginal Pain</option>
+                                            <option value = "3">Asymptomatic</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                            </div>
+                            <button type="button" class="collapsible">Click here for more information on Chest Pain</button>
+                            <div class="content">
+                                 <p>◼ Location: Chest pain occurs around the substernal portion of the body<br>
+                                     ◼ Cause: Pain is experienced after induction of emotional/physical stress<br>
+                                     ◼ Relief: The pain goes away after taking nitroglycerine and/or a rest
+                                     <br><br>
+                                     Choose an option according to your parameters, <br>
+                                      ◼Typical angina : all criteria present <br>
+                                      ◼ATypical angina : two of three criteria satisfied <br>
+                                      ◼Non-anginal pain : less than one criteria satisfied <br>
+                                      ◼Asymptomatic : none of the criteria are satisfied <br>
+                                  </p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name required-field">Blood Pressure</div>
+                            <div class="value">
+                                <div >
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="blood_pressure" required> mm/Hg
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button type="button" class="collapsible">Click here for more information on Blood Pressure</button>
+                            <div class="content">
+                                 <p>◼ enter your systolic blood pressure
+                                     <br><br>
+                                      ◼Systolic Blood Pressure : how much pressure your blood is exerting against your artery walls when the heart beats. <br>
+                                      ◼When you get your blood pressure numbers, there are two of them. <br>
+                                      ◼The first, or “top” one, is your systolic blood pressure.<br>
+                                  </p>
+                            </div>
+                        </div>
+                            <div class="form-row">
+                                <div class="name required-field">Cholesterol </div>
+                                <div class="value">
+                                <div>
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="cholesterol" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name required-field">Fasting Blood Sugar </div>
+                            <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="blood_sugar" required>
+                                            <option value="">Choose option</option>
+                                            <option value = "0">No</option>
+                                            <option value = "1">Yes</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                            </div>
+
+                            <button type="button" class="collapsible">Click here for more information on Fasting Blood Sugar</button>
+                            <div class="content">
+                                 <p> if fasting blood sugar value is higher than 120 mg/dL it is likely to be diabetic <br>
+                                     ◼ if fbs > 120 mg/dL : 1 = true <br>
+                                     ◼ if fbs < 120 mg/dL : 0 = false
+                                  </p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                                <div class="name required-field">Maximum Heart Rate Achieved</div>
+                                <div class="value">
+                                <div>
+                                    <div class="col-5">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="maxHeartRate" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name required-field">Exercise induced Angina </div>
+                            <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="angina" required>
+                                            <option value="">Choose option</option>
+                                            <option value = "0">No</option>
+                                            <option value = "1">Yes</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                            </div>
+
+                            <button type="button" class="collapsible">Click here for more information on Exercise Induced Angina</button>
+                            <div class="content">
+                                 <p> Angina is pain in the chest that comes on with exercise, stress, or other things that make the heart work harder <br>
+                                     ◼ if you feel a pain in chest while exercising : 1 = true <br>
+                                     ◼ if you do not feel a pain in chest while exercising : 0 = false
+                                  </p>
+                            </div>
+                        </div>
+                            <br>
+                        <div style="margin: auto;">
+
+                            <input class="btn btn--radius-2 btn--blue" type="submit" value="Check Risk" onclick="Validate();">
+                        </div>
+
+                            <div>
+                    </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <script src="static/vendor/datepicker/moment.min.js"></script>
+    <script src="static/vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="static/js/global.js"></script>
+
+    <script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+<script type="text/javascript">
+            function Validate()
+            {
+                var e = document.getElementById("chest_pain");
+                var strUser = e.options[e.selectedIndex].value;
+
+                var strUser1 = e.options[e.selectedIndex].text;
+                if(strUser==0)
+                {
+                    alert("Please select a your chest pain type");
+                }
+            }
+        </script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->
